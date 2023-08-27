@@ -1,0 +1,101 @@
+.modal {
+    position: relative;
+    max-width: 800px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    background: #111;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 400ms ease-in-out 2s;
+    animation: fadeIn 400ms;
+}
+.modal__poster-img {
+    width: 100%;
+    height: auto;
+}
+.modal__content {
+    padding: 40px;
+    color: white;
+}
+.modal__title {
+    padding: 0;
+    font-size: 40px;
+    margin: 16px 0;
+}
+.modal__details {
+    font-weight: 600;
+    font-size: 18px;
+}
+.modal__overview {
+    font-size: 20px;
+    line-height: 1.5;
+}
+.modal__user-perc {
+    color: #46d369;
+}
+.modal::-webkit-scrollbar {
+    display: none;
+    visibility: hidden;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.modal {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.wrapper-modal {
+    position: fixed;
+    /* 모든 방향의 간격을 0픽셀로 설정하므로 해당 요소는 경계 상자의 가장자리와 부모 요소 사이에 간격이 없게 됩니다. */
+    inset: 0px;
+    background-color: rgb(0 0 0 / 71%);
+    /* 투명한 강조 효과 */
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    justify-content: center;
+}
+.presentation {
+    z-index: 1200;
+    position: absolute;
+}
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    color: white;
+}
+@media screen and (max-height: 768px) {
+    .wrapper-modal {
+        align-items: unset;
+        padding-top: 2rem;
+    }
+    .modal {
+        overflow-y: scroll;
+    }
+}
+@media screen and (max-width: 768px) {
+    .modal__overview {
+        font-size: 16px;
+    }
+    .modal__details {
+        font-size: 16px;
+    }
+    .wrapper-modal {
+        padding: 0;
+    }
+    .modal {
+        /*  .modal 클래스를 가진 요소에서는 수직 스크롤바가 항상 표시되며, 다른 스타일 규칙에 의해 변경되지 않습니다. */
+        /* 우선순위를 강제로 설정? */
+        overflow-y: scroll !important;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
